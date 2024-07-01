@@ -1,1 +1,12 @@
 2024-06-27 22:38:05,022 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-07-01 11:49:01,618 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-07-01 12:09:30,470 [JGit-FileStoreAttributeWriter-2] ERROR org.eclipse.jgit.util.FS - Cannot save config file 'FileBasedConfig[/Users/ralph/.config/jgit/config]'
+java.io.IOException: Creating directories for /Users/ralph/.config/jgit failed
+	at org.eclipse.jgit.util.FileUtils.mkdirs(FileUtils.java:421)
+	at org.eclipse.jgit.internal.storage.file.LockFile.lock(LockFile.java:144)
+	at org.eclipse.jgit.storage.file.FileBasedConfig.save(FileBasedConfig.java:201)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.saveToConfig(FS.java:776)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.lambda$5(FS.java:458)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
