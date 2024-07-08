@@ -19,12 +19,12 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	compileOnly 'org.projectlombok:lombok' 
+	developmentOnly 'org.springframework.boot:spring-boot-devtools' //devtools install, 최신사항 반영 
+	compileOnly 'org.projectlombok:lombok'           //lombok 설치,getter 코드 자동 어쩌
     annotationProcessor 'org.projectlombok:lombok' 
-    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'com.h2database:h2' //H2데이터베이스 설치
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //JAP
 }
 
 tasks.named('test') {

@@ -1,20 +1,16 @@
-package com.mysite.sbb;
+package com.mysite.sbb; 
+import lombok.Getter; 
+import lombok.RequiredArgsConstructor; 
 
-import lombok.Getter;
-import lombok.Setter;
+@RequiredArgsConstructor //꼭 기억해두래;;
+@Getter 
+public class HelloLombok { 
+    private final String hello; 
+    private final int lombok; 
 
-@Getter
-@Setter
-public class HelloLombok {
-    private String hello;
-    private int lombok;
-
-    public static void main(String[] args) {
-        HelloLombok helloLombok = new HelloLombok();
-        helloLombok.setHello("헬로");
-        helloLombok.setLombok(5);
-
-        System.out.println(helloLombok.getHello());
-        System.out.println(helloLombok.getLombok());
-    }
+    public static void main(String[] args) { 
+        HelloLombok helloLombok = new HelloLombok("헬로", 5); 
+        System.out.println(helloLombok.getHello()); 
+        System.out.println(helloLombok.getLombok()); 
+    } 
 }
