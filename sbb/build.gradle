@@ -25,6 +25,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok' 
     runtimeOnly 'com.h2database:h2' //H2데이터베이스 설치
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //JAP
+    testImplementation 'org.junit.jupiter:junit-jupiter' //JUnit
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {

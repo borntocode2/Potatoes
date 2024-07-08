@@ -42,7 +42,6 @@ INDEX VERSION 1.134+/Users/ralph/Desktop/Spring Boot/.metadata/.plugins/org.ecli
 3565461518.index
 2131709937.index
 1214384301.index
-2077605676.index
 2815190752.index
 1291981784.index
 3027268171.index
