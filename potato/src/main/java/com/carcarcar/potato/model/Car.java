@@ -19,7 +19,7 @@ public class Car {
     // 자동차 모델을 저장하는 필드 (예: Camry, Focus)
     private String model;
     // 자동차 제조 연도를 저장하는 필드
-    private int year;
+    private int modelYear;
 
     // JPA는 엔티티 객체가 기본 생성자를 가지고 있어야 합니다.
     // 이 생성자는 JPA 프로바이더가 엔티티 객체를 생성할 때 사용합니다.
@@ -27,10 +27,10 @@ public class Car {
 
     // 모든 필드를 초기화할 수 있는 생성자를 제공합니다.
     // 이 생성자를 사용하면 객체를 생성할 때 모든 값을 한 번에 설정할 수 있습니다.
-    public Car(String brand, String model, int year) {
+    public Car(String brand, String model, int modelYear) {
         this.brand = brand;
         this.model = model;
-        this.year = year;
+        this.modelYear = modelYear;
     }
 
     // 각 필드에 대한 getter 및 setter 메소드.
@@ -60,10 +60,10 @@ public class Car {
     }
 
     public int getYear() {
-        return year;
+        return modelYear;
     }
 
     public void setYear(int year) {
-        this.year = year;
+        this.modelYear = modelYear;
     }
 }
