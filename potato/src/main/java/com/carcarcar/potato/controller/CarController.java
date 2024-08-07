@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.http.ResponseEntity;
+
 
 @CrossOrigin(origins = "http://127.0.0.1:5500") // 프론트엔드 서버 주소
 
@@ -64,4 +66,11 @@ public class CarController {
     public void deleteCar(@PathVariable Long id) {
         carService.deleteCar(id);
     }
+
+    @PostMapping("/cars")
+    public ResponseEntity<Car> addCar(@RequestBody Car car) {
+        Car savedCar = carService.saveCar(car);
+        return ResponseEntity.ok(savedCar);
+    }
+
 }

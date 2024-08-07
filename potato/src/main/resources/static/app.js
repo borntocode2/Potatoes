@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             year: parseInt(document.getElementById('year').value, 10)
         };
 
-        fetch('http://localhost:8080/cars', {
+        fetch('/cars', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 기존 자동차 데이터 로딩
-    fetch('http://localhost:8080/cars')
+    fetch('/cars')
     .then(response => response.json())
     .then(data => {
         const carList = document.getElementById('carList');
