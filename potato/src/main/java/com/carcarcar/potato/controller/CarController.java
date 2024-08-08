@@ -24,7 +24,7 @@ public class CarController {
 
     // @Autowired를 사용하여 스프링이 CarService 객체를 자동으로 주입하도록 합니다.
     // 이렇게 CarService 의존성이 주입되면, 이 클래스 내에서 CarService의 메소드를 사용할 수 있습니다.
-    @Autowired
+    @Autowired //야 스프링아 골뱅이 집중.
     private CarService carService;
 
     // 모든 자동차 정보를 조회하는 메소드

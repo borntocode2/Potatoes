@@ -17,9 +17,13 @@ repositories {
 	mavenCentral()
 }
 
+
+
 dependencies {
+
+
 	// 스프링 부트 웹 스타터: 스프링 MVC와 톰캣을 포함하여 웹 애플리케이션을 구축할 수 있도록 지원합니다.
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web' //버전 맞춰줌
 
 	// 스프링 부트 데이터 JPA 스타터: JPA를 사용하여 데이터베이스와의 상호작용을 쉽게 하며, Hibernate 등의 JPA 구현체를 포함합니다.
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -30,10 +34,12 @@ dependencies {
 
 	// H2 데이터베이스: 인메모리 데이터베이스로, 개발 및 테스트에 용이합니다. 설치나 별도의 설정 없이 사용 가능합니다.
 	runtimeOnly 'com.h2database:h2'
-		// Spring Boot 스타터에는 Spring Security가 포함될 수 있습니다.
-	implementation 'org.springframework.boot:spring-boot-starter-security'
 
-		// 스프링 부트 테스트 스타터: 스프링 애플리케이션을 위한 테스트 기능을 제공합니다.
+	// 스프링은 메이븐리포지토리가서 파일 다운받고 압축 풀어야했다. 호환성이 안맞아? 다시 롤백
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.3.0'
+
+
+	// 스프링 부트 테스트 스타터: 스프링 애플리케이션을 위한 테스트 기능을 제공합니다.
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	implementation 'com.h2database:h2:1.4.200'
