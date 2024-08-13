@@ -2,6 +2,12 @@ package com.carcarcar.potato.controller;
 
 import com.carcarcar.potato.model.Car;
 import com.carcarcar.potato.service.CarService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +15,8 @@ import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.ResponseEntity;
 
+//이 컨트롤러 기본 소개,설명
+@Tag(name = "자동차", description = "자동차에 대한 요청을 컨트롤하는 API입니다.")
 
 @CrossOrigin(origins = "http://127.0.0.1:5500") // 프론트엔드 서버 주소
 
@@ -30,6 +38,12 @@ public class CarController {
     // 모든 자동차 정보를 조회하는 메소드
     // @GetMapping은 HTTP GET 요청을 처리합니다.
     // 이 메소드는 '/cars' 경로에 대한 GET 요청을 처리하며, 모든 자동차 목록을 반환합니다.
+    @Operation(summary = "Example API Summary", description = "Your description")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success"),
+            @ApiResponse(responseCode = "404", description = "Not Found"),
+    })
+
     @GetMapping
     public List<Car> getAllCars() {
         return carService.findAllCars();

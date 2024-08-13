@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
         data.forEach(car => {
             const listItem = document.createElement('li');
             listItem.textContent = `${car.brand} ${car.model} - ${car.year}`;
-            carList.appendChild(listItem);
+            carList.appendChild
+            (listItem);
         });
     })
     .catch(error => console.error('Error:', error));

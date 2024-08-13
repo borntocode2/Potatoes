@@ -20,6 +20,8 @@ repositories {
 
 
 dependencies {
+	// swagger ui
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
 
 
 	// 스프링 부트 웹 스타터: 스프링 MVC와 톰캣을 포함하여 웹 애플리케이션을 구축할 수 있도록 지원합니다.
