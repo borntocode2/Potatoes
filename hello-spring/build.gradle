@@ -1,0 +1,32 @@
+//버전 설정하고 라이브러리 떙겨오는구나.
+
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral() //여기서 밑의 라이브러리들을 다운 받아라.
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//나는 라이버르리 2개만 떙겼지만, 요놈은 gradle토글 에서도 확인할 수 있듯이 의존관계에 있는 라이브러리들을 알아서 떙겨온다.
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
