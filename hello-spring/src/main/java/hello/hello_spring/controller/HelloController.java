@@ -27,19 +27,19 @@ public class HelloController {
     @GetMapping("hello-api")
     @ResponseBody //hello-api가 매핑되어있네? 어라 ?ResponseBody네?
                   // hello 객체에 name을 파라미터로 넣은 상태로 반환
-    public Hello helloApi(@RequestParam("name") String name){
+    public Hello helloApi(@RequestParam("name") String name){ // 3. Hello타입을 return 하는 정의문
         Hello hello = new Hello();
-        hello.setName(name);
-        return hello;
+        hello.setName(name); // 4. 생성자를 통해 생성된 Hello타입의 객체 hello에다가 setName메서드에 name을 넣는다.
+        return hello; //Body에 응답함
     }
-    static class Hello {
-        private String name;
+    static class Hello { // 1. 클래스 Hello 생성
+        private String name; // 2. 클래스 속성 name이 있다
 
         public String getName(){
             return name;
         }
 
-        public void setName(String name){
+        public void setName(String name){// 메서드
             this.name = name;
         }
     }
