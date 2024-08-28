@@ -14,9 +14,11 @@ public class Member {
     }
 
     public String getName(){ //메서드
+
         return name;
     }
 
-    public void setName(String spring) {
+    public void setName(String name) {
+        this.name = name;
     }
 }
