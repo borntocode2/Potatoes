@@ -3,21 +3,28 @@ package hello.hello_spring.sevice;
 import hello.hello_spring.domain.Member;
 import hello.hello_spring.repository.MemberRepository;
 import hello.hello_spring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service //이건 왜?
+//이건 왜?
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository() { //인터페이스라서 이따구로 만든건가?
+    private MemberRepository memberRepository;
+
+
+    public MemberService(MemberRepository memberRepository){
+        this.memberRepository = memberRepository;
+    }
+
         public Long join(Member member) {
             validateDuplicateMember(member); //중복 회원 방지
             memberRepository.save(member);
             return member.getId();
         }
-
         private void validateDuplicateMember(Member member) {
             memberRepository.findByName(member.getName()) //Repo에서 member의 네임이 존재하면 throw new
                     .ifPresent(m -> {
@@ -34,5 +41,4 @@ public class MemberService {
         public Optional<Member> findOne(Long memberId) {
             return memberRepository.findById(memberId);
         }
-    };
 }
