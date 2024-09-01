@@ -5,13 +5,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-//이건 왜?
+@Repository//자바는 이게 repository인지 몰라, 어노테이션으로 알려준다. 이게 Repository야.
+//리포지토리는 엔티티를 db랑 연결짓는 역할
 public class MemoryMemberRepository implements MemberRepository{
 
-    private static Map<Long, Member> store = new HashMap<>();
-    private static long sequence = 0L;
+    private static Map<Long, Member> store = new HashMap<>(); // new hashMap<>();  메서드 안에 MAp t사용, 반대
+    private static long sequence = 0L; //랜덤 함수인가? 이게 뭐지?
 
-    @Override
+    @Override //다른 개발자한테 알려준다. 이건 상속받은거라고.
     public Member save(Member member) {
         member.setId(++sequence); //save메서드가 호출된다면 member객체의 ID가 Long타입으로 증가되고
         store.put(member.getId(), member);//store 해쉬맵에 id가 저장되고 member 객체가 저장된다.;
@@ -25,7 +26,8 @@ public class MemoryMemberRepository implements MemberRepository{
 
     @Override
     public Optional<Member> findByName(String name) {
-        return store.values().stream().filter(member -> member.getName().equals(name)).findAny(); //**요놈
+        return store.values().stream().filter(member -> member.getName().equals(name)).findAny(); //반환 타입이
+        //반환타입이 옵셔널이기 때문에, NULL값을 반환하진 않는다. 향후 검증로직에서 ifPresent 메서드 안의 NPE를 방지함.
     }
 
     @Override

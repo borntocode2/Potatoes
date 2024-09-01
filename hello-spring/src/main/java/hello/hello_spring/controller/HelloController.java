@@ -32,9 +32,10 @@ public class HelloController {
         hello.setName(name); // 4. 생성자를 통해 생성된 Hello타입의 객체 hello에다가 setName메서드에 name을 넣는다.
         return hello; //Body에 응답함
     }
-    static class Hello { // 1. 클래스 Hello 생성
+    static class Hello { // 1. 클래스 Hello 생성, //Hello 현실에서의 개체를 코드의 객체로 만들기 위한 정보 저장
         private String name; // 2. 클래스 속성 name이 있다
 
+        // 정보를 코드에다가 만들었으면, 정보를 가져오거나 세팅하거나 해야할거아니야
         public String getName(){
             return name;
         }
