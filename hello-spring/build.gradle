@@ -25,6 +25,7 @@ dependencies {
 	//나는 라이버르리 2개만 떙겼지만, 요놈은 gradle토글 에서도 확인할 수 있듯이 의존관계에 있는 라이브러리들을 알아서 떙겨온다.
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {

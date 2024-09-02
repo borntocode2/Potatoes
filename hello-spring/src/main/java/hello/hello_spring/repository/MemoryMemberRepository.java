@@ -9,7 +9,9 @@ import java.util.*;
 //리포지토리는 엔티티를 db랑 연결짓는 역할
 public class MemoryMemberRepository implements MemberRepository{
 
-    private static Map<Long, Member> store = new HashMap<>(); // new hashMap<>();  메서드 안에 MAp t사용, 반대
+    private static Map<Long, Member> store = new HashMap<>(); // new hashMap<>();  메서드 안에 Map t사용, 반대
+                                                              // Map<Long, Member> 제네릭 타입, 타입을 일반화하여 안정적이게
+                                                              // 자바 컬렉션 중에 Map 타입으로 제네릭을 정의하여 Long, Member타입만 받을 수 있게끔 정의함
     private static long sequence = 0L; //랜덤 함수인가? 이게 뭐지?
 
     @Override //다른 개발자한테 알려준다. 이건 상속받은거라고.

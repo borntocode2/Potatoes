@@ -27,7 +27,7 @@ public class MemberService {
         }
         private void validateDuplicateMember(Member member) {
             memberRepository.findByName(member.getName())// 옵셔널안에 멤버 객체가 있는 것 //Repo에서 member의 네임이 존재하면 throw new
-                    .ifPresent(m -> { // ifpresent가 Null을 받으면 NPE를 발생시키고, 값이 있으면 ifpresent 파라미터의 함수를 실행시킴.
+                    .ifPresent(m -> { // ifpresent(옵셔널 전용)가 옵셔널 객체의 값을 꺼내본다., 값이 널이면, NPE 발생, 값이 있으면 ifpresent 파라미터의 함수를 실행시킴.
                         throw new IllegalStateException("이미 존재하는 회원입니다."); // throw 뒤에는 예외 객체가 와야함,
                     });                                                         // IllegalStateException은 예외객체임,
             // NullPointerException도 예외객체..etc
