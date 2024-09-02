@@ -16,7 +16,7 @@ public class MemberService {
     private MemberRepository memberRepository;
 
     @Autowired
-    public MemberService(MemberRepository memberRepository){
+    public MemberService(MemberRepository memberRepository){  //이건 없어도 되지 않나 ? 왜 있는 거지?
         this.memberRepository = memberRepository;
     }
 

@@ -12,7 +12,7 @@ public class MemoryMemberRepository implements MemberRepository{
     private static Map<Long, Member> store = new HashMap<>(); // new hashMap<>();  메서드 안에 Map t사용, 반대
                                                               // Map<Long, Member> 제네릭 타입, 타입을 일반화하여 안정적이게
                                                               // 자바 컬렉션 중에 Map 타입으로 제네릭을 정의하여 Long, Member타입만 받을 수 있게끔 정의함
-    private static long sequence = 0L; //랜덤 함수인가? 이게 뭐지?
+    private static long sequence = 0L;
 
     @Override //다른 개발자한테 알려준다. 이건 상속받은거라고.
     public Member save(Member member) {
@@ -22,14 +22,15 @@ public class MemoryMemberRepository implements MemberRepository{
     }
 
     @Override
-    public Optional<Member> findById(Long id) {
-        return Optional.ofNullable(store.get(id)); //id를 찾는 메서드 findById가 호출되면 store에서 Optional로 감싸진 id를 리턴
-    }
+    public Optional<Member> findById(Long id) { //store.get(id)는 id라는 키에 해당하는 Member 객체를 반환거나 NULL return
+        return Optional.ofNullable(store.get(id)); //id를 이용하여 member 찾는 메서드
+    }                                               // Member or Null을 반환하기 떄문에 .ofNullable 메서드를 이용해 NULL일경우 빈 객체반환
 
     @Override
     public Optional<Member> findByName(String name) {
         return store.values().stream().filter(member -> member.getName().equals(name)).findAny(); //반환 타입이
         //반환타입이 옵셔널이기 때문에, NULL값을 반환하진 않는다. 향후 검증로직에서 ifPresent 메서드 안의 NPE를 방지함.
+        //문법 학습 필요
     }
 
     @Override

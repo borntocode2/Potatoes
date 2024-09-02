@@ -21,7 +21,7 @@ public class MemberController {
     }
 
 
-    @PostMapping CreateDto
+    @PostMapping
     public CreateDto createMember(@RequestBody CreateDto dto){//createDto타입을 반환하는 createMember메서드 생성
         return new CreateDto(); // 실제 로직 구현은 서비스의 메서드를 활용
     }

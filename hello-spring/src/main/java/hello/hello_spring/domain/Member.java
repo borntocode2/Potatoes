@@ -9,7 +9,7 @@ public class Member {
         return id;
     }
 
-    public void setId(Long id){ // 메서드
+    public void setId(Long id){ // id를 세팅한다. 왜 파라미터가 Member member 엔티티가 아닌가?
         this.id = id;
     }
 
