@@ -7,17 +7,17 @@ import java.util.*;
 
 @Repository//자바는 이게 repository인지 몰라, 어노테이션으로 알려준다. 이게 Repository야.
 //리포지토리는 엔티티를 db랑 연결짓는 역할
-public class MemoryMemberRepository implements MemberRepository{
+public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>(); // new hashMap<>();  메서드 안에 Map t사용, 반대
-                                                              // Map<Long, Member> 제네릭 타입, 타입을 일반화하여 안정적이게
-                                                              // 자바 컬렉션 중에 Map 타입으로 제네릭을 정의하여 Long, Member타입만 받을 수 있게끔 정의함
+    // Map<Long, Member> 제네릭 타입, 타입을 일반화하여 안정적이게
+    // 자바 컬렉션 중에 Map 타입으로 제네릭을 정의하여 Long, Member타입만 받을 수 있게끔 정의함
     private static long sequence = 0L;
 
     @Override //다른 개발자한테 알려준다. 이건 상속받은거라고.
     public Member save(Member member) {
         member.setId(++sequence); //save메서드가 호출된다면 member객체의 ID가 Long타입으로 증가되고
-        store.put(member.getId(), member);//store 해쉬맵에 id가 저장되고 member 객체가 저장된다.;
+        store.put(member.getId(), member);//store 해쉬맵에 id가 저장되고 member 객체가 저장된다. Name은 입력받아 member로 전달받나?
         return member;
     }
 
