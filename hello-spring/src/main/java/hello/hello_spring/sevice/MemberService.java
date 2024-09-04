@@ -13,10 +13,15 @@ import java.util.Optional;
 @Service//이건 왜?
 public class MemberService {
 
-    private MemberRepository memberRepository;
+    private MemberRepository memberRepository; //여기서 실제 memberRepository가 만들어지고, 파라미터에 넣어주는 것.
+
+    // 원래는 MemberRepository를 찾아서 MemberService 생성자에 주입시켜줘야 하는데,
+    // 여기서 16번째 코드로 바로 주입되는 것이냐, 아님 스프링 어노테이션으로 주입되는 것이냐의 갈림길
+    // @Autowired랑 @Repository 묶어주니 자동으로 MemberRepository에 주입이 되는 것인가?
+    // 그렇다면,  서비스 어노테이션이 붙어있는 객체의 @Autowired는 스프링에서 자동적으로 Repository 어노테이션이랑 연결해주는 것인가?
 
     @Autowired
-    public MemberService(MemberRepository memberRepository){
+    public MemberService(MemberRepository memberRepository){ //MemberService객체가 생성될 때, MemberRepository 타입의 클래스를 넣는다.
         this.memberRepository = memberRepository;
     }
 
