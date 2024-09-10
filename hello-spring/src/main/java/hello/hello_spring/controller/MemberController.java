@@ -20,11 +20,17 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-
-    @PostMapping
-    public CreateDto createMember(@RequestBody CreateDto dto){//createDto타입을 반환하는 createMember메서드 생성
-        return new CreateDto(); // 실제 로직 구현은 서비스의 메서드를 활용
+    @GetMapping("/members/new")
+    public String createForm(){
+     return "members/createMemberForm";
     }
+    @PostMapping("/members/new") //form의 post랑 매핑된 것
+    public String create(MemberForm form){ //form.html에 name이 form의 name이랑 연결됨.
+        Member member = new Member();
+        member.setName(form.getName());
 
+        memberService.join(member);
 
+        return"redirect:/";
+    }
 }
