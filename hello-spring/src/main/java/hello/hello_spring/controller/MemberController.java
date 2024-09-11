@@ -1,11 +1,14 @@
 package hello.hello_spring.controller;
 
+import ch.qos.logback.core.model.Model;
 import hello.hello_spring.domain.CreateDto;
 import hello.hello_spring.domain.Member;
 import hello.hello_spring.sevice.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 //Autowired를 왜 쓰는 건가? 그냥 service빈 등록해서 쓰면 되는거 아닌가?
 //Autowired밑에 왜 생성자가 있는 건가? 생성자로 인해 memberservice가 생성되고 그것이 Controller에 등록?
@@ -20,7 +23,7 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @GetMapping("/members/new")
+    @GetMapping("/members/new") //해당 URL로 이동하면 createMemberForm.html을 반환한다.
     public String createForm(){
      return "members/createMemberForm";
     }
@@ -33,4 +36,5 @@ public class MemberController {
 
         return"redirect:/";
     }
+
 }
